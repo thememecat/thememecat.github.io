@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小黑生日快乐 : )</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="password-modal" id="passwordModal">
+        <div class="password-content">
+            <h2>🔒 请输入密码</h2>
+            <input type="password" id="passwordInput" placeholder="请输入密码" maxlength="4">
+            <p class="error-message" id="errorMessage"></p>
+            <button id="submitPassword">确认</button>
+        </div>
+    </div>
+    <div id="mainContent" style="display: none;">
+        <div class="tip-modal">
+            <div class="tip-content">
+                <svg class="tip-icon" viewBox="0 0 24 24">
+                    <path d="M12,4 L12,4 C16.418278,4 20,7.581722 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12,8 L12,13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                </svg>
+                <p>底部可以播放音乐哦（全是DDG的! )</p>
+            </div>
+        </div>
+        <audio id="bgMusic" style="display: none"></audio>
+        <div class="music-control">
+            <div class="current-song">
+                <span id="currentSongName">选择音乐开始播放</span>
+            </div>
+            <div class="control-buttons">
+                <button id="showPlaylist" title="播放列表">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M3,6 H21 M3,12 H21 M3,18 H21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="16" cy="12" r="2" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button id="prevSong" title="上一首">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M6,5 V19 M20,5 L10,12 L20,19 V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="musicToggle" title="播放/暂停">
+                    <svg class="icon play-icon" viewBox="0 0 24 24">
+                        <path class="play-path" d="M8,5 L19,12 L8,19 V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path class="pause-path" d="M8,5 V19 M16,5 V19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
+                    </svg>
+                </button>
+                <button id="nextSong" title="下一首">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M18,5 V19 M4,5 L14,12 L4,19 V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="playlistModal" class="playlist-modal">
+            <div class="playlist-content">
+                <div class="playlist-header">
+                    <h3>🎵 播放列表</h3>
+                    <button id="closePlaylist" class="close-btn">×</button>
+                </div>
+                <div id="playlist"></div>
+            </div>
+        </div>
+        
+        <div class="bg-container">
+            <div class="bg-image"></div>
+        </div>
+        <div class="container">
+            <div class="birthday-card">
+                <div class="header">
+                    <h1>生日快乐 : )</h1>
+                    <div class="balloon-container">
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <p class="message">To 彭丹：</p>
+                    <p class="wishes">
+                        愿你的生日充满欢乐和温馨，<br>
+                        愿你的每一天都闪耀着幸福的光芒，<br>
+                        愿你的梦想都能成真！
+                    </p>
+                    <div class="cake">🎂</div>
+                    <div class="countdown">
+                        <p>距离下一次生日还有：</p>
+                        <div class="countdown-numbers">
+                            <span id="days">00</span>天
+                            <span id="hours">00</span>时
+                            <span id="minutes">00</span>分
+                            <span id="seconds">00</span>秒
+                        </div>
+                    </div>
+                    
+                    <div class="domain-gift">
+                        <h3>特别的礼物</h3>
+                        <p>这个网站和国际域名是属于你的！</p>
+                        <div class="domain-name">
+                            <span>小黑生日快乐.fun</span>
+                            <button class="copy-btn" onclick="copyDomain()">复制</button>
+                        </div>
+                        <details class="whois-details">
+                            <summary>查看域名详情</summary>
+                            <pre class="whois-data">Domain Name: XN--FJQX84AY2C31H3KV2F1D.FUN
+Registry Domain ID: D516383022-CNIC
+Creation Date: 2025-01-03T17:35:32.0Z
+Registry Expiry Date: 2026-01-03T23:59:59.0Z
+Internationalized Domain Name: 小黑生日快乐.fun</pre>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
